@@ -1,0 +1,33 @@
+; Factorial
+
+; A
+push 1000
+
+; B <- A
+load $0
+
+label fact
+
+; B <- B - 1
+push 1
+load $1
+sub
+store $1 $2
+pop
+
+; A <- A * B
+load $0
+load $1
+mul
+store $0 $2
+pop
+
+push 1
+load $1
+jg fact
+
+; B
+pop
+
+; A
+pop
